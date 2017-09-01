@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-require("./routing/apiroutes")(app); 
-require("./routing/htmlroutes")(app);
+require("./routing/apiRoutes")(app); 
+require("./routing/htmlRoutes")(app);
 
 
 
@@ -25,7 +25,7 @@ app.get ("/madepreorder", function (req, res) {
 });
 
 app.get("/api/friends", function (req, res) {
-  res.sendfile(path.join(__dirname, "/data/friends"))
+  res.sendfile(path.join(__dirname, "/data/Friends"))
 });
 
 
