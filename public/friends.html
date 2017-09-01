@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Video Game Preorder</title>
+ <!-- Latest compiled and minified CSS & JS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ <script src="https://code.jquery.com/jquery.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+   <div class="container text-center">
+       <div class = "jumbotron">
+           <div class = "row">
+               <div class = "col-md-12">
+                       <h1>Game Start</h1>
+                       <h2>Make Your Preorder</h2>  
+               </div>
+           </div>
+           </div>
+       </div>
+   </div>
+<form>
+  <div class="form-group">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control-warning" id="Name" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="Picture">Picture</label>
+    <input type="text" class="form-control-warning" id="Picture" placeholder="Picture">
+     <div class="form-group">
+
+     <h4> 1.) I make friends easily.</h4>
+<select class="form-control form-control-sm-warning" id = "quest1">
+
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+<h4> 2.) I have a vivid imagination.</h4>
+<select class="form-control form-control-sm-warning" id = "quest2">
+
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+<h4> 3.) I worry about things.</h4>
+<select class="form-control form-control-sm-warning" id = "quest3">
+
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+<h4> 4.) I try to lead others.</h4>
+<select class="form-control form-control-sm-warning" id = "quest4">
+
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+<h4> 5.) I believe that others have good intentions.</h4>
+<select class="form-control form-control-sm-warning" id = "quest5">
+
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+
+    <button type="button" class="btn btn-info" id="submit">Submit</button>
+</form>
+
+           </div>
+<a href = "/api/friends"> noodles </a>
+
+       </div>
+<script type="text/javascript">
+
+
+$("#submit").on("click", function (){
+
+var NewFriend = {
+        Name: $("#Name").val().trim(),
+        Picture: $("#Picture").val().trim(),
+        Q1: $("#quest1").val().trim(),
+        Q2: $("#quest2").val().trim(),
+        Q3: $("#quest3").val().trim(),
+        Q4: $("#quest4").val().trim(),
+        Q5: $("#quest5").val().trim()
+      };
+
+ console.log(NewFriend);
+
+   $.post("/api/friends", NewFriend,
+        function(data) {
+          if (data) {
+            alert("Recording Data");
+          }
+});
+});
+
+
+   </script>  
+</body>
